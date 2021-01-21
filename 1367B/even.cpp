@@ -9,27 +9,35 @@ int main()
 		int a;
 		cin>>a;
 		int arr[a];
-		int count = 0;
-		int flag = 0;
-		for(int i=0;i<a;i++)
-			cin>>arr[i];
+		int count_0 = 0;
+		int count_1 = 0;
+		int sw = 0;
 		for(int i=0;i<a;i++)
 		{
-			arr[i] = arr[i]%2;
+			int temp;
+			cin>>temp;
+			arr[i] = temp%2;
+			if(arr[i] == 0)
+				count_0++;
+			else
+				count_1++;
+			if((i%2 == 0 && arr[i]%2 != 0) || (i%2 == 1 && arr[i]%2 !=1))
+				sw++;
 		}
-		for(int i=0;i<a;i++)
-			if(arr[i] != i)
-				count++;
-		sort(arr,arr+a);
-		for(int i=0;i<a;i++)
-			if(arr[i]%2 != i)
-			{
+		if(a%2 == 0)
+		{
+			if(count_0 == count_1)
+				cout<<ceil(sw/2)<<endl;
+			else
 				cout<<"-1"<<endl;
-				flag = 1;
-				break;
-			}
-		if(flag == 0)
-			cout<<count/2<<endl;
+		}
+		else
+		{
+			if(count_0 == count_1+1)
+				cout<<ceil(sw/2)<<endl;
+			else
+				cout<<"-1"<<endl;
+		}
 	}
 	return 0;
 }
