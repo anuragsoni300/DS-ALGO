@@ -8,26 +8,22 @@ int main()
 	{
 		int n;
 		cin>>n;
-		int arr[n];
+		int arr[2*n];
 		for(int i=0;i<2*n;i++)
 		{
 			cin>>arr[i];
 		}
-		for(int i=0;i<2*n;i++)
-                      cout<<arr[i]<<' ';
-		int qrr[2*n];
+		int qrr[n+1];
+		fill(qrr+1,qrr+n+1,0);
 		vector<int> vec;
-		fill(qrr,qrr+2*n,0);
 		for(int i=0;i<2*n;i++)
-		{
+                {
 			if(qrr[arr[i]] == 0)
 			{
+				cout<<arr[i]<<' ';
 				qrr[arr[i]] = 1;
-				vec.push_back(arr[i]);
 			}
-		}
-	//	for(int i=0;i<n;i++)
-	//		cout<<vec[i]<<' ';
+                }
 		cout<<endl;
 	}
 	return 0;
